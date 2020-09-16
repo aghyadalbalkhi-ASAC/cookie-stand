@@ -165,22 +165,16 @@ form.addEventListener('submit', function (event) {
   colSum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   var name = event.target.nameField.value;
-  console.log('name: ', name);
 
   var minForm = event.target.mincus.value;
   minForm = Number(minForm);
-  console.log('minForm: ', minForm, typeof minForm);
 
   var maxForm = event.target.maxcus.value;
   maxForm = Number(maxForm);
 
-  console.log('Max Value: ', maxForm, typeof maxForm);
-
   var AvgForm = event.target.cookiesAvg.value;
 
   AvgForm = Number(AvgForm);
-
-  console.log('AVG Cookies Value: ', AvgForm, typeof AvgForm);
 
   var AddLocation = new LocationsHope(name, maxForm, minForm, AvgForm);
 
@@ -189,10 +183,8 @@ form.addEventListener('submit', function (event) {
     Locations[i].getRandomCustomerPerHours();
     Locations[i].getcookies_purchased_Hour();
   }
-  console.log(AddLocation);
 
   table.textContent = '';
-
 
   var DataRow = document.createElement('tr');       //create Row tag
   table.appendChild(DataRow);
@@ -203,14 +195,10 @@ form.addEventListener('submit', function (event) {
   for (var t = 0; t < Locations.length; t++) {
 
     Locations[t].render();
-    console.log(Locations);
   }
-
   // This will Create The Footer Rom In The Table
- 
-  addFooter();
-  console.log(colSum);
 
+  addFooter();
 
 });
 
