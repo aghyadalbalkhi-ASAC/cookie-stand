@@ -14,9 +14,8 @@ mainid.appendChild(table);
 var DataRow = document.createElement('tr');       //create Row tag
 table.appendChild(DataRow);
 
-var emptycol = document.createElement('th');     //create an empty col for empty cell in header and total in footer 
-emptycol.textContent = ' ';                       
-DataRow.appendChild(emptycol);
+var emptycol;     //create an empty col for empty cell in header and total in footer 
+
 
 
 //Create Locations Objects Constrctour 
@@ -83,11 +82,11 @@ LocationsHope.prototype.render = function () {
 
 //Creating Objects Using constructor
 
-var Seattle = new LocationsHope('Seattle', 65, 23, 6.3, [], []);
-var Tokyo = new LocationsHope('Tokyo', 24, 3, 1.2, [], []);
-var Dubai = new LocationsHope('Dubai', 38, 11, 3.7, [], []);
-var Paris = new LocationsHope('Paris', 38, 20, 2.3, [], []);
-var Lima = new LocationsHope('Lima', 16, 2, 4.6, [], []);
+var Seattle = new LocationsHope('Seattle', 65, 23, 6.3);
+var Tokyo = new LocationsHope('Tokyo', 24, 3, 1.2);
+var Dubai = new LocationsHope('Dubai', 38, 11, 3.7);
+var Paris = new LocationsHope('Paris', 38, 20, 2.3);
+var Lima = new LocationsHope('Lima', 16, 2, 4.6);
 
 
 // Calling Function To prepare Objects Location Using Loop 
@@ -113,6 +112,11 @@ addFooter();
 
 // Fill Open Hour Data in Hour Row 
 function addHeader() {
+  DataRow = document.createElement('tr');       //create Row tag
+  table.appendChild(DataRow);
+  emptycol = document.createElement('th');     //create an empty col for empty cell in header and total in footer 
+  emptycol.textContent = ' ';
+  DataRow.appendChild(emptycol);
 
   for (var out = 0; out < OpenHour.length; out++) {
     var ListItemLocation = document.createElement('th');
@@ -149,4 +153,66 @@ function generateRandomNumber(min, max) {
   return random;
 
 }
+
+/////////////////////////////////////[Lab-09]/////////////////////////////////////////////////////////
+
+var form = document.getElementById('Cookies-salmoon');
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Reset The Value Of Total to calc agian without double the Result 
+  colSum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  var name = event.target.nameField.value;
+  console.log('name: ', name);
+
+  var minForm = event.target.mincus.value;
+  minForm = Number(minForm);
+  console.log('minForm: ', minForm, typeof minForm);
+
+  var maxForm = event.target.maxcus.value;
+  maxForm = Number(maxForm);
+
+  console.log('Max Value: ', maxForm, typeof maxForm);
+
+  var AvgForm = event.target.cookiesAvg.value;
+
+  AvgForm = Number(AvgForm);
+
+  console.log('AVG Cookies Value: ', AvgForm, typeof AvgForm);
+
+  var AddLocation = new LocationsHope(name, maxForm, minForm, AvgForm);
+
+  for (var i = 0; i < Locations.length; i++) {
+
+    Locations[i].getRandomCustomerPerHours();
+    Locations[i].getcookies_purchased_Hour();
+  }
+  console.log(AddLocation);
+
+  table.textContent = '';
+
+
+  var DataRow = document.createElement('tr');       //create Row tag
+  table.appendChild(DataRow);
+
+  addHeader();
+
+  // Create A row and looping in Locations Objects and Fill Data
+  for (var t = 0; t < Locations.length; t++) {
+
+    Locations[t].render();
+    console.log(Locations);
+  }
+
+  // This will Create The Footer Rom In The Table
+ 
+  addFooter();
+  console.log(colSum);
+
+
+});
+
+
 
