@@ -1,6 +1,9 @@
 body{
     margin: 0;
     padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    background-color: #F5F5F6;
 }
 
 #ulnav {
@@ -46,21 +49,20 @@ img{
     border:1px solid #d6dfec;
 }
 
-h2{
+h2,th{
     color: #e5474b;
-    font-weight: 700;
+    font-family: 'Bebas Neue', cursive;
+
     line-height: 1.5;
     margin-left:5%;
     text-transform: uppercase;
 }
 
 /* Table Style */
-.tg {border-collapse:collapse;border-spacing:0; margin-left:5%; width: 400px;}
+.tg {border-collapse:collapse;border-spacing:0; margin-left:5%; width: 400px; border: red;}
 
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial,sans-serif;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-to86{background-color:#ffffff;border-color:inherit;color:#cb0000;text-align:center;vertical-align:top}
 .tg .tg-yv8f{background-color:#2196f3;border-color:inherit;color:#ffffff;font-weight:bold;text-align:center;vertical-align:top}
 .tg .tg-lb9h{background-color:#ffffff;border-color:inherit;color:#2962ff;font-weight:bold;text-align:center;vertical-align:top}
@@ -78,6 +80,7 @@ margin-right: 2.5%;
 width: 95%;
 padding: 5px;
 background-color:#2196F3;
-color: white;
 
 }
+
+
